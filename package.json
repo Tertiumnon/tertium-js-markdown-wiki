@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^1.8.0",
-    "@tertium/js": "^1.4.8",
+    "@tertium/js": "^3.0.0",
     "@types/express": "^4.17.17",
     "@types/markdown-it": "^13.0.1",
     "@types/node": "^18.17.17",
