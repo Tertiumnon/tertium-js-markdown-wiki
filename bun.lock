@@ -12,10 +12,11 @@
       },
       "devDependencies": {
         "@biomejs/biome": "^1.8.0",
-        "@tertium/js": "^3.0.0",
+        "@tertium/js": "^3.0.2",
         "@types/express": "^4.17.17",
         "@types/markdown-it": "^13.0.1",
         "@types/node": "^18.17.17",
+        "bun-types": "^1.4.2",
         "typescript": "^5.2.2",
       },
     },
@@ -39,7 +40,7 @@
 
     "@biomejs/cli-win32-x64": ["@biomejs/cli-win32-x64@1.9.4", "", { "os": "win32", "cpu": "x64" }, "sha512-8Y5wMhVIPaWe6jw2H+KlEm4wP/f7EW3810ZLmDlrEEy5KvBsb9ECEfu/kMWD484ijfQ8+nIi0giMgu9g1UAuuA=="],
 
-    "@tertium/js": ["@tertium/js@3.0.0", "", { "peerDependencies": { "jose": "^6.0.0" }, "optionalPeers": ["jose"] }, "sha512-SY6pwaAkVPgQjCIpyKvSECAaZ8TL1K+cqXxnM1HUg2M2Lz5Njnika8AkYH99JNZZnb8KDmT/4cawGDpxEK6lfA=="],
+    "@tertium/js": ["@tertium/js@3.0.2", "", { "peerDependencies": { "jose": "^6.0.0" }, "optionalPeers": ["jose"] }, "sha512-6o4m7tb3UrFCEAUGCMBvFKQUhWJFQgR1+TyQcgGf1N3JGUJL+1iHw7o9BpL4Pm41u4Sb2A2W3meWuD1M6334nA=="],
 
     "@types/body-parser": ["@types/body-parser@1.19.3", "", { "dependencies": { "@types/connect": "*", "@types/node": "*" } }, "sha512-oyl4jvAfTGX9Bt6Or4H9ni1Z447/tQuxnZsytsCaExKlmJiU8sFgnIBRzJUpKwB5eWn9HuBYlUlVA74q/yN0eQ=="],
 
@@ -86,6 +87,8 @@
     "body-parser": ["body-parser@1.20.1", "", { "dependencies": { "bytes": "3.1.2", "content-type": "~1.0.4", "debug": "2.6.9", "depd": "2.0.0", "destroy": "1.2.0", "http-errors": "2.0.0", "iconv-lite": "0.4.24", "on-finished": "2.4.1", "qs": "6.11.0", "raw-body": "2.5.1", "type-is": "~1.6.18", "unpipe": "1.0.0" } }, "sha512-jWi7abTbYwajOytWCQc37VulmWiRae5RyTpaCyDcS5/lMdtwSz5lOpDE67srw/HYe35f1z3fDQw+3txg7gNtWw=="],
 
     "brace-expansion": ["brace-expansion@1.1.11", "", { "dependencies": { "balanced-match": "^1.0.0", "concat-map": "0.0.1" } }, "sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA=="],
+
+    "bun-types": ["bun-types@1.4.2", "", { "dependencies": { "@types/node": "*" } }, "sha512-bxV1FgK7yBIzjRe5zBozIM4Bem11ZJcCXSrjWRG3YWLt8yFDePu4cLjpebO8OvPeIE9trbyPF4fuj3Cia4Fj3w=="],
 
     "bytes": ["bytes@3.1.2", "", {}, "sha512-/Nf7TyzTx6S3yRJObOAV7956r8cr2+Oj8AC5dt8wSP3BQAoeX58NoHyCU8P8zGkNXStjTSi6fzO6F0pBdcYbEg=="],
 
