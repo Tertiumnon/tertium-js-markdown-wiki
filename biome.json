@@ -33,6 +33,9 @@
       "quoteStyle": "single",
       "semicolons": "always",
       "trailingCommas": "none"
-    }
+    },
+    "globals": [
+      "Bun"
+    ]
   }
 }

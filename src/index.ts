@@ -1,14 +1,8 @@
 import fs from 'node:fs';
 import express from 'express';
-import MarkdownIt from 'markdown-it';
 import { getFiles } from './utils/file.util';
 
 const app = express();
-const md = new MarkdownIt({
-  html: true,
-  linkify: true,
-  typographer: true
-});
 
 const APP_PORT = 8080; // Default port to listen
 const TEST_DIR = 'test';
@@ -20,13 +14,13 @@ app.set('view engine', 'html');
 
 // Define a route handler for the default home page
 app.get('/', (_req, res) => {
-  res.send('NodeJS Markdown Wiki');
+  res.send('Bun Markdown Wiki');
 });
 
 app.get('/test', (_req, res) => {
   const path = `${__dirname}/../${TEST_DIR}/test.md`;
   const file = fs.readFileSync(path, 'utf8');
-  res.send(md.render(file));
+  res.send(Bun.markdown.html(file, { autolinks: true }));
 });
 
 app.get('/files', (_req, res) => {

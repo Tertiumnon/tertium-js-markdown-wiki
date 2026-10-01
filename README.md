@@ -1,4 +1,4 @@
-# NodeJS Markdown Wiki
+# Bun Markdown Wiki
 
 A simple web server for displaying and managing markdown files with an HTTP interface.
 
@@ -7,21 +7,18 @@ A simple web server for displaying and managing markdown files with an HTTP inte
 - 📄 Display markdown files as HTML
 - 🗂️ Navigate folder and file structure
 - ⚡ Native TypeScript support
+- 🚀 Zero-dependency, Rust-fast markdown via the built-in `Bun.markdown`
 - 🎨 Fast linting and formatting with Biome
 - 📦 Version management and releases via npm scripts
 
 ## Requirements
 
-- Node.js 18+ or [Bun](https://bun.sh)
-- npm or bun
+- [Bun](https://bun.sh) 1.4+ (the server uses the built-in `Bun.markdown` API, so it does **not** run on plain Node.js)
+- bun
 
 ## Installation
 
 ```bash
-# Using npm
-npm install
-
-# Or using Bun
 bun install
 ```
 
@@ -30,8 +27,6 @@ bun install
 ### Start the server
 
 ```bash
-npm start
-# or
 bun run start
 ```
 
@@ -95,19 +90,21 @@ test/
 
 ### Markdown rendering
 
-Files are rendered with [markdown-it](https://github.com/markdown-it/markdown-it), configured in `src/index.ts`:
+Files are rendered with Bun's built-in [`Bun.markdown`](https://bun.sh/docs/runtime/markdown) (a fast, Rust-based parser), configured in `src/index.ts`:
 
 ```ts
-new MarkdownIt({
-  html: true,        // Raw HTML inside markdown is allowed
-  linkify: true,     // Bare URLs are auto-linked
-  typographer: true  // Typographic replacements (smart quotes, etc.)
+Bun.markdown.html(file, {
+  autolinks: true, // Bare URLs are auto-linked
 });
 ```
 
+GFM extensions (tables, strikethrough, task lists) are enabled by default. Raw HTML inside markdown passes through unchanged.
+
+> **Note:** `Bun.markdown` is a **Bun-only** API and does **not** support the typographer (smart quotes, `(c)`→`©`) or the markdown-it plugin ecosystem (footnotes, definition lists, sub/superscript, `ins`, `mark`, emoji). If you need those, keep a library such as `markdown-it` instead.
+
 ### Images
 
-Images are **not** processed specially. `markdown-it` emits the `src` attribute exactly as written in the markdown, and the server sends the rendered HTML straight to the browser. The browser then resolves the image URL itself — the server never touches image files.
+Images are **not** processed specially. `Bun.markdown` emits the `src` attribute exactly as written in the markdown, and the server sends the rendered HTML straight to the browser. The browser then resolves the image URL itself — the server never touches image files.
 
 ```md
 ![Alt text](images/logo.png)
@@ -155,26 +152,26 @@ Use a **root-relative** path (`/static/...`), not a relative one (`images/...`),
 - The `test/` directory name and the `test.md` filename are hardcoded — change them in `src/index.ts` if you want a different layout.
 - `GET /files` lists **every** file in `test/`, including non-markdown files, so keep the directory clean if you only want markdown in the tree.
 - Subfolders are traversed recursively, so you can organize a larger wiki into nested folders.
-- Start the server from the project root (as `npm start` does) so the `test/` directory resolves correctly.
+- Start the server from the project root (as `bun run start` does) so the `test/` directory resolves correctly.
 - Prefer **absolute URLs** for images; the server does not serve local files by default.
 
-## npm Scripts
+## Scripts
 
 ```bash
 # Development
-npm start              # Run server with hot reload
+bun run start              # Run server with hot reload
 
 # Build
-npm run build         # Build to dist/
+bun run build         # Build to dist/
 
 # Code quality
-npm run lint          # Check code with Biome
-npm run format        # Format code with Biome
+bun run lint          # Check code with Biome
+bun run format        # Format code with Biome
 
 # Releases
-npm run release:patch # Patch release (bump patch version)
-npm run release:minor # Minor release (bump minor version)
-npm run release:major # Major release (bump major version)
+bun run release:patch # Patch release (bump patch version)
+bun run release:minor # Minor release (bump minor version)
+bun run release:major # Major release (bump major version)
 ```
 
 ## Project Structure
@@ -196,10 +193,10 @@ tertium-js-markdown-wiki/
 
 ## Tech Stack
 
-- **Runtime**: [Bun](https://bun.sh) or Node.js
+- **Runtime**: [Bun](https://bun.sh) 1.4+
 - **Framework**: Express.js 4.18.2
 - **Language**: TypeScript 5.2.2
-- **Markdown Parsing**: markdown-it 13.0.1
+- **Markdown Parsing**: `Bun.markdown` (built-in, zero-dependency)
 - **Templating**: EJS 3.1.9
 - **Linting & Formatting**: Biome 1.8.0
 - **Release Management**: @tertium/js 1.4.8
