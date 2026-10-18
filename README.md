@@ -1,4 +1,4 @@
-# Bun Markdown Wiki
+# @tertium/js-markdown-wiki
 
 A simple web server for displaying and managing markdown files with an HTTP interface.
 
