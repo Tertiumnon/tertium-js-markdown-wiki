@@ -144,15 +144,6 @@ Use a **root-relative** path (`/static/...`), not a relative one (`images/...`),
 - Start the server from the project root (as `bun run start` does) so the `test/` directory resolves correctly.
 - Prefer **absolute URLs** for images; the server does not serve local files by default.
 
-## Documentation
-
-- [Install](docs/INSTALL.md)
-- [Development](docs/DEVELOPMENT.md)
-
-## License
-
-MIT
-
 ## Author
 
 Vitalii Balabanov <tertiumnon@gmail.com>
