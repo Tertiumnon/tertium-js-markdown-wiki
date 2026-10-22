@@ -1,3 +1,17 @@
 type: web-app
-publish_on:
+slug: tertium-js-markdown-wiki
+listed_on:
   - https://tertiumnon.github.io
+display_name:
+  en: "@tertium/js-markdown-wiki"
+summary:
+  en: "Simple Bun web server that displays and manages markdown files over HTTP."
+languages:
+  - en
+default_language: en
+team:
+  - name: Vitalii Balabanov
+    roles:
+      - owner
+      - developer
+    github: Tertiumnon
